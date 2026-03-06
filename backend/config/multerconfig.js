@@ -1,6 +1,6 @@
 const multer = require("multer");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
-const cloudinary = require("../config/cloudinary.js"); // we'll create this next
+const cloudinary = require("./cloudinary.js");
 
 // Cloudinary storage — PDFs go directly to Cloudinary
 const storage = new CloudinaryStorage({
