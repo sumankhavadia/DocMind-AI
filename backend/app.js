@@ -22,9 +22,9 @@ app.use(
     credentials: true,
   })
 );
-
-app.get("/health", (req, res) => {
-  res.send("SmartDoc AI Backend is running");
+// ── Health check ──────────────────────────────────────────────
+app.get("/", (req, res) => {
+  res.json({ status: "ok", message: "DocMind API running" });
 });
 
 app.use("/api/documents", require("./routes/documents"));
