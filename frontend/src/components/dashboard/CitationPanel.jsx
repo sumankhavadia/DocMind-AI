@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, FileText, Layers } from 'lucide-react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { API_ENDPOINTS } from '../../config/api';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
@@ -80,7 +81,7 @@ const CitationPanel = ({
   const wrapRef = useRef(null);
 
   const token  = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
-  const pdfUrl = documentId ? `/api/documents/${documentId}/file` : null;
+  const pdfUrl = documentId ? API_ENDPOINTS.GET_DOCUMENT(documentId) : null;
 
   const pdfFile = useMemo(() => {
     if (!pdfUrl) return null;

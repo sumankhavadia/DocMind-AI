@@ -5,6 +5,7 @@ import {
   ChevronDown, BookOpen, Layers, Search,
   RefreshCw, Copy, ThumbsUp, ThumbsDown, Trash2
 } from 'lucide-react';
+import { API_ENDPOINTS } from '../../config/api';
 import CitationPanel from './CitationPanel';
 
 // ── Personas ─────────────────────────────────────────────────
@@ -209,7 +210,7 @@ const Dashboard = () => {
       const formData = new FormData();
       formData.append('pdf', file);
       const token = localStorage.getItem('token');
-      const res = await fetch('/api/documents/upload', { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: formData });
+      const res = await fetch(API_ENDPOINTS.UPLOAD, { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: formData });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Upload failed');
       setUploadedFile(file); setDocumentId(data.documentId); setDocumentType(data.docType);
@@ -234,7 +235,7 @@ const Dashboard = () => {
     addMsg({ type: 'assistant', typing: true, text: '' });
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('/api/query/summary', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ documentId }) });
+      const res = await fetch(API_ENDPOINTS.SUMMARY, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ documentId }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Summary failed');
       updateLast({ typing: false, text: data.summary || 'No summary returned.' });
@@ -248,7 +249,7 @@ const Dashboard = () => {
     addMsg({ type: 'assistant', typing: true, text: '' });
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('/api/query/search', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ query, documentId: documentId || null }) });
+      const res = await fetch(API_ENDPOINTS.SEARCH, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ query, documentId: documentId || null }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
       const results = Array.isArray(data.results) ? data.results : [];
@@ -265,7 +266,7 @@ const Dashboard = () => {
     addMsg({ type: 'assistant', typing: true, text: '' });
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('/api/query/ask', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ question, documentId: documentId || null, docType: documentType, persona }) });
+      const res = await fetch(API_ENDPOINTS.ASK, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ question, documentId: documentId || null, docType: documentType, persona }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Query failed');
       updateLast({ typing: false, text: data.answer || 'No answer returned.', citationData: toCitationData(data) });

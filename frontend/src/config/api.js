@@ -3,24 +3,24 @@
  * Uses environment variable in production, relative paths in development (via Vite proxy)
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 export const API_ENDPOINTS = {
   // Auth
-  LOGIN: `${API_BASE_URL}/auth/login`,
-  REGISTER: `${API_BASE_URL}/auth/register`,
+  LOGIN: `${API_BASE_URL}/api/auth/login`,
+  REGISTER: `${API_BASE_URL}/api/auth/register`,
   
   // Documents
-  UPLOAD: `${API_BASE_URL}/documents/upload`,
-  GET_DOCUMENT: (docId) => `${API_BASE_URL}/documents/${docId}/file`,
+  UPLOAD: `${API_BASE_URL}/api/documents/upload`,
+  GET_DOCUMENT: (docId) => `${API_BASE_URL}/api/documents/${docId}/file`,
   
   // Query
-  ASK: `${API_BASE_URL}/query/ask`,
-  SEARCH: `${API_BASE_URL}/query/search`,
-  SUMMARY: `${API_BASE_URL}/query/summary`,
+  ASK: `${API_BASE_URL}/api/query/ask`,
+  SEARCH: `${API_BASE_URL}/api/query/search`,
+  SUMMARY: `${API_BASE_URL}/api/query/summary`,
   
   // Citations
-  GET_CITATIONS: (messageId) => `${API_BASE_URL}/citations/${messageId}`,
+  GET_CITATIONS: (messageId) => `${API_BASE_URL}/api/citations/${messageId}`,
 };
 
 /**
