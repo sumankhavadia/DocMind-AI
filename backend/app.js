@@ -3,18 +3,23 @@ const cors = require("cors");
 const app = express();
 const embedRoute = require("./routes/embed");
 
-const defaultOrigins = ["http://localhost:5173"];
+const defaultOrigins = [
+  "http://localhost:5173",
+  "https://sumankhavadia-docmind-ai.vercel.app",
+];
+const normalizeOrigin = (origin) => origin.replace(/\/+$/, "");
 const envOrigins = (process.env.CORS_ORIGINS || "")
   .split(",")
   .map((origin) => origin.trim())
-  .filter(Boolean);
-const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
+  .filter(Boolean)
+  .map(normalizeOrigin);
+const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins].map(normalizeOrigin))];
 
 app.use(express.json());
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(normalizeOrigin(origin))) {
         return callback(null, true);
       }
       return callback(new Error("Not allowed by CORS"));

@@ -3,7 +3,13 @@
  * Uses environment variable in production, relative paths in development (via Vite proxy)
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+const rawApiBase = (import.meta.env.VITE_API_URL || '').trim();
+const trimmedBase = rawApiBase.replace(/\/+$/, '');
+
+// Accept both forms in env: https://host or https://host/api
+const API_BASE_URL = trimmedBase.endsWith('/api')
+  ? trimmedBase.slice(0, -4)
+  : trimmedBase;
 
 export const API_ENDPOINTS = {
   // Auth
