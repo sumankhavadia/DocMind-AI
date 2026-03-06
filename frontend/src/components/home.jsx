@@ -336,11 +336,11 @@ export default function Home() {
           }}>
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <a href="/signup">
+          <Link to="/signup">
             <button className="btn-primary" style={{ padding: "10px 22px", borderRadius: 10, fontSize: "0.875rem" }}>
               <span style={{ display: "flex", alignItems: "center", gap: 6 }}>Get Started <ArrowRight size={15} /></span>
             </button>
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -398,13 +398,13 @@ export default function Home() {
           </p>
 
           <div className="fade-up-3" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", marginBottom: 64 }}>
-            <a href="/signup">
+            <Link to="/signup">
               <button className="btn-primary" style={{ padding: "16px 32px", borderRadius: 12, fontSize: "1rem" }}>
                 <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   Upload Your First Doc <ChevronRight size={18} />
                 </span>
               </button>
-            </a>
+            </Link>
             <button className="btn-ghost" style={{
               padding: "16px 32px", borderRadius: 12, fontSize: "1rem",
               border: `1px solid ${theme.border}`,
@@ -797,13 +797,13 @@ export default function Home() {
           <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "1.1rem", marginBottom: 40 }}>
             Join thousands of professionals extracting insights at the speed of thought.
           </p>
-          <a href="/signup">
+          <Link to="/signup">
             <button className="btn-primary" style={{ padding: "18px 44px", borderRadius: 14, fontSize: "1.1rem" }}>
               <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 Start Free — No credit card required <ArrowRight size={20} />
               </span>
             </button>
-          </a>
+          </Link>
         </div>
       </section>
 
