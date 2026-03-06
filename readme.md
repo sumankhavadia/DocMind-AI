@@ -205,7 +205,23 @@ Open: `http://localhost:5173`
 
 ---
 
-## 🛠️ Common Troubleshooting
+## � UI Preview
+
+> **Note:** Screenshots hosted on Cloudinary
+
+![Login Screen](https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1/docmind/screenshots/login.png)
+
+![Dashboard](https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1/docmind/screenshots/dashboard.png)
+
+![Document Upload](https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1/docmind/screenshots/upload.png)
+
+![Chat Interface](https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1/docmind/screenshots/chat.png)
+
+![Citation Panel](https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1/docmind/screenshots/citation-panel.png)
+
+---
+
+## �🛠️ Common Troubleshooting
 
 ### MongoDB `ENOTFOUND _mongodb._tcp...`
 - Usually malformed `MONGO_URI`.
