@@ -2,18 +2,6 @@
 
 DocMind AI is a full-stack RAG app where users upload PDFs, ask questions, and get cited answers with persona-aware responses.
 
-## 📸 UI Preview
-
-![Home screen](image-1.png)
-![Auth flow](image-2.png)
-![Dashboard](image-3.png)
-![Upload flow](image-4.png)
-![Q&A response](image-5.png)
-![Citation panel](image-6.png)
-![Document preview](image-7.png)
-
----
-
 ## ✨ Current Features
 
 - 📄 PDF upload with Cloudinary storage

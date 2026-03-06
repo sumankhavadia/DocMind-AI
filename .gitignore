@@ -57,6 +57,10 @@ embeddings/*.pkl
 # ------------------------------
 uploads/
 backend/uploads/
+*.png
+*.jpg
+*.jpeg
+*.gif
 
 # ------------------------------
 # Editor / OS junk
