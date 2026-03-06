@@ -25,6 +25,11 @@ class AskRequest(BaseModel):
 class ClassifyRequest(BaseModel):
     text: str
 
+
+@app.get("/")
+def health():
+    return {"status": "ok"}
+
 @app.post("/add")
 def add_documents(req: AddDocsRequest):
     embeddings = model.encode(req.chunks).tolist()
