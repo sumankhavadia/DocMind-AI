@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Lock, Mail, Shield, Zap, Sparkles } from 'lucide-react';
+import { API_ENDPOINTS } from "../../config/api";
 
 const NoiseBg = () => (
   <svg className="fixed inset-0 w-full h-full pointer-events-none z-0" style={{ opacity: 0.03 }} xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +47,7 @@ const Login = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch(API_ENDPOINTS.LOGIN, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
