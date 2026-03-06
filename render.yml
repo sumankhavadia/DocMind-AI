@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: docmind-python
+    runtime: python
+    rootDir: python-service
+    buildCommand: pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_ENV
+        value: production
+      - key: HF_HOME
+        value: /tmp/huggingface
+      - key: TRANSFORMERS_CACHE
+        value: /tmp/huggingface
+      - key: SENTENCE_TRANSFORMERS_HOME
+        value: /tmp/huggingface
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"

@@ -4,3 +4,21 @@ sentence-transformers
 faiss-cpu
 numpy
 pydantic
+fastapi==0.111.0
+uvicorn==0.29.0
+pydantic==2.7.1
+
+# Smallest viable embedding model
+sentence-transformers==2.7.0
+
+# Pin torch to CPU-only — saves ~1GB vs default GPU version
+torch==2.3.0+cpu
+torchvision==0.18.0+cpu
+
+# Vector search
+faiss-cpu==1.8.0
+
+# HTTP + utils
+numpy==1.26.4
+python-multipart==0.0.9
+httpx==0.27.0
